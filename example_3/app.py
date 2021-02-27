@@ -94,7 +94,8 @@ tabular(maFonction, 0, 10, 2)
 
 #  exercice 6
 """
-définir la liste : liste =[17, 38, 10, 25, 72], puis effectuez les actions suivantes :
+définir la liste : liste =[17, 38, 10, 25, 72], 
+puis effectuez les actions suivantes :
 – triez et affichez la liste ;
 – ajoutez l’élément 12 à la liste et affichez la liste ;
 – renversez et affichez la liste ;
@@ -107,6 +108,39 @@ définir la liste : liste =[17, 38, 10, 25, 72], puis effectuez les actions suiv
 – affichez le dernier élément en utilisant un indiçage négatif.
 Bien remarquer que certaines méthodes de liste ne retournent rien.
 """
+
+nombres = [17, 38, 10, 25, 72]
+print(" Liste initiale ".center(50, '+'))
+print(nombres, '\n')
+
+rien = input('"Entree"')
+print(" Tri ".center(50, '-'))
+nombres.sort()
+print(nombres, '\n')
+rien = input('"Entree"')
+print(" Ajout d'un element ".center(50, '-'))
+nombres.append(12)
+print(nombres, '\n')
+rien = input('"Entree"')
+print(" Retournement ".center(50, '-'))
+nombres.reverse()
+print(nombres, '\n')
+rien = input('"Entree"')
+print(" Indice d'un element ".center(50, '-'))
+print(nombres.index(17), '\n')
+rien = input('"Entree"')
+print(" Retrait d'un element ".center(50, '-'))
+nombres.remove(38)
+print(nombres, '\n')
+rien = input('"Entree"')
+print(" Indicage ".center(50, '-'))
+print("nombres[1:3] =", nombres[1:3])
+print("nombres[:2] =", nombres[:2])
+print("nombres[2:] =", nombres[2:])
+print("nombres[:] =", nombres[:])
+print("nombres[-1] =", nombres[-1])
+
+
 #  exercice 7
 """
 Écrire une fonction compterMots ayant un argument (une chaîne de caractères) er qui
