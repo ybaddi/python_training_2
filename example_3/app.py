@@ -45,17 +45,30 @@ S’il ne l’est pas, la boucle devra afficher le premier diviseur
 trouvé et s’interrompre. S’il est premier,
 l’afficher dans une clause else.
 """
+# from easygui import integerbox, msgbox
+# liste = [2,4,5,6,7,11]
+# cible = integerbox("Veuillez entrer un entier:","")
+# print(cible)
 
 #  exercice 4
 """
 1- Écrire une fonction cube qui retourne le cube de son argument.
-2-Écrire une fonction volumeSphere qui calcule le volume d’une sphère 
+2- Écrire une fonction volumeSphere qui calcule le volume d’une sphère 
 de rayon r fourni
 en argument et qui utilise la fonction cube.
 Tester la fonction volumeSphere par un appel dans le programme principal.
 """
+from math import pi
+def cube(x): return x**3
+    #  4 * pi * r**3/3
 
-#  exercice 4
+def volumeSphere(r): return 4 * pi * cube(r) / 3
+
+rayon = float(input("Rayon :"))
+print("Volume de la sphere de rayon {:.1f} est : {:.3f}"
+.format(rayon,volumeSphere(rayon)))
+
+#  exercice 5
 """
 Écrire une fonction maFonction qui retourne f (x) = 2x^3 + x −5.
 Écrire une procédure tabuler avec quatre paramètres : fonction, borneInf,
@@ -65,4 +78,77 @@ Tester la fonction volumeSphere par un appel dans le programme principal.
 Tester cette procédure par un appel dans le programme principal après 
 avoir saisi les deux bornes dans une floatbox et le nombre de pas 
 dans une integerbox (utilisez le module easyguiB).
+"""
+def maFonction(x): return 2 * x**3 + x - 5
+
+def tabular(fonction, bornInf, bornSup, nbPas): 
+    # h = (bornSup - bornInf) / float(nbPas)
+    x = bornInf
+    while x <= bornSup:
+        y = fonction(x)
+        print("f({:.2f}) = {:.3f}".format(x,y))
+        x += nbPas
+
+tabular(maFonction, 0, 100, 10)
+tabular(maFonction, 0, 10, 2)
+
+#  exercice 6
+"""
+définir la liste : liste =[17, 38, 10, 25, 72], puis effectuez les actions suivantes :
+– triez et affichez la liste ;
+– ajoutez l’élément 12 à la liste et affichez la liste ;
+– renversez et affichez la liste ;
+– affichez l’indice de l’élément 17 ;
+– enlevez l’élément 38 et affichez la liste ;
+– affichez la sous-liste du 2eau 3eélément ;
+– affichez la sous-liste du début au 2eélément ;
+– affichez la sous-liste du 3eélément à la fin de la liste ;
+– affichez la sous-liste complète de la liste ;
+– affichez le dernier élément en utilisant un indiçage négatif.
+Bien remarquer que certaines méthodes de liste ne retournent rien.
+"""
+#  exercice 7
+"""
+Écrire une fonction compterMots ayant un argument (une chaîne de caractères) er qui
+renvoie un dictionnaire qui contient la fréquence de tous les mots de la chaîne entrée.
+"""
+
+#  exercice 8
+"""
+Implémentez une pile LIFO avec une liste.
+Pour cela, définir trois fonctions :
+pile : qui retourne une pile à partir d’une liste variable d’éléments passés en paramètre ;
+empile : empile un élément en « haut » de la pile ;
+depile : dépile un élément du « haut » de la pile.
+"""
+
+#  exercice 9
+"""
+1-Écrire un module de calcul des racines du trinôme réel : ax2 +bx +c.
+Le module définit une fonction trinome avec les trois paramètres du trinôme, a, b et
+c. La fonction doit retourner un tuple dont le premier élément est le nombre de racines
+du trinôme (0, 1 ou 2), et les autres éléments sont les racines éventuelles.
+Testez votre fonction avec les trois jeux de valeurs suivantes : 1,−3, 2, 1,−2, 1 et 1, 1, 1.
+
+2-Écrire un programme principal utilisant le module précédent.
+Les trois paramètres seront saisis dans une flotbox du module easyguiB et les résultats seront affichés dans une msgbox.
+"""
+
+#  exercice 10
+"""
+Définir une classe MaClasse possédant les attributs suivants :
+données : deux attributs de classes : x = 23 et y = x + 5.
+méthode : une méthode affiche contenant un attribut d’instance z = 42 et les affichages de y et de z.
+Dans le programme principal, instanciez un objet de la classe MaClasse et invoquez la
+méthode affiche.
+"""
+
+#  exercice 11
+"""
+Définir une classe Rectangle avec un constructeur donnant des valeurs (longueur et
+largeur) par défaut et un attribut nom = "rectangle", une méthode d’affichage et
+une méthode surface renvoyant la surface d’une instance.
+Définir une classe Carre héritant de Rectangle et qui surcharge l’attribut d’instance :
+nom = "carré".
+Dans le programme principal, instanciez un Rectangle et un Carre et affichez-les
 """
