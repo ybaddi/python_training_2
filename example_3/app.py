@@ -141,33 +141,107 @@ print("nombres[:] =", nombres[:])
 print("nombres[-1] =", nombres[-1])
 
 
-#  exercice 7
+#  exercice 7 
 """
-Écrire une fonction compterMots ayant un argument (une chaîne de caractères) er qui
-renvoie un dictionnaire qui contient la fréquence de tous les mots de la chaîne entrée.
+1- Écrire une fonction compterMots ayant un argument 
+(une chaîne de caractères) er qui
+renvoie un dictionnaire qui contient la fréquence 
+de tous les mots de la chaîne entrée.
+"hello world, hello karim, hello alvin" => 
+hello=3, world=1, karim=1, alvin=1 
+2- meme exercice pour les caractere compterCaracter
+liste= " ".split(' ')
 """
+def compterMots(texte):
+    dict = {}
+    listeMots = texte.split()
+    for item in listeMots:
+        if item in dict:
+            dict[item] = dict[item] + 1
+        else:
+            dict[item] = 1
+    return dict
+# programme principal -----------------------------------------------
+res = compterMots("Ala Met Asn Glu Met Cys Asn Glu Hou Ala Met Gli Asn Asn")
+for c in res.keys():
+    print(c, "-->", res[c])
 
 #  exercice 8
 """
 Implémentez une pile LIFO avec une liste.
 Pour cela, définir trois fonctions :
-pile : qui retourne une pile à partir d’une liste variable d’éléments passés en paramètre ;
-empile : empile un élément en « haut » de la pile ;
-depile : dépile un élément du « haut » de la pile.
+
+- pile : qui retourne une pile à partir d’une liste 
+variable d’éléments passés en paramètre ;
+
+- empile : empile un élément en « haut » de la pile ;
+- depile : dépile un élément du « haut » de la pile.
+
+      ___________________________
+=>    12 11
+      __________________________
+2- meme exercice avec FIFO
 """
+
+def pile(*args):
+    p=[]
+    if not args:
+        return p
+    for item in args:
+        p.append(item)
+    return list(p)
+
+def empiler(p,a): p.append(a)
+
+def depiler(p): 
+    try:
+        p.pop()
+    except:
+        print("la pile est vide")
+
+print(" Pile ".center(50, '-'))
+numbersList=pile(5,6,7,8,9)
+print(numbersList)
+rien = input('"Entree"')
+print(" empiler ".center(50, '-'))
+empiler(numbersList, 13)
+print(numbersList)
+rien = input('"Entree"')
+print(" depiler ".center(50, '-'))
+for i in range(7):
+    depiler(numbersList)
+    print(numbersList)
+
 
 #  exercice 9
 """
-1-Écrire un module de calcul des racines du trinôme réel : ax2 +bx +c.
-Le module définit une fonction trinome avec les trois paramètres du trinôme, a, b et
-c. La fonction doit retourner un tuple dont le premier élément est le nombre de racines
+1-Écrire un module de calcul des racines du 
+trinôme réel : ax2 +bx +c.
+Le module définit une fonction trinome avec 
+les trois paramètres du trinôme, a, b et
+c. La fonction doit retourner un tuple dont 
+le premier élément est les racines
 du trinôme (0, 1 ou 2), et les autres éléments sont les racines éventuelles.
 Testez votre fonction avec les trois jeux de valeurs suivantes : 1,−3, 2, 1,−2, 1 et 1, 1, 1.
 
 2-Écrire un programme principal utilisant le module précédent.
 Les trois paramètres seront saisis dans une flotbox du module easyguiB et les résultats seront affichés dans une msgbox.
 """
+from math import sqrt
+def trinome(a,b,c):
+    delta = b**2 - 4*a*c
 
+    if delta > 0.0:
+        racine_delta = sqrt(delta)
+        return (2, (-b-racine_delta)/(2*a), (-b+racine_delta)/(2*a))
+    if delta < 0.0:
+        return (0,)
+    else:
+        return (1, (-b)/(2*a))
+
+print(trinome(1.0,-3.0,2.0)) # x^2 -3x+2=0
+print(trinome(1.0,-2.0,1.0)) # x^2 -2x+1=0
+print(trinome(1.0,1.0,1.0)) # x^2 -x+1=0
 #  exercice 10
 """
 Définir une classe MaClasse possédant les attributs suivants :
