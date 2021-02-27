@@ -244,12 +244,24 @@ print(trinome(1.0,-2.0,1.0)) # x^2 -2x+1=0
 print(trinome(1.0,1.0,1.0)) # x^2 -x+1=0
 #  exercice 10
 """
-Définir une classe MaClasse possédant les attributs suivants :
+Définir une classe MaClasse possédant 
+les attributs suivants :
 données : deux attributs de classes : x = 23 et y = x + 5.
 méthode : une méthode affiche contenant un attribut d’instance z = 42 et les affichages de y et de z.
 Dans le programme principal, instanciez un objet de la classe MaClasse et invoquez la
 méthode affiche.
 """
+class MaClass:
+    x=23
+    y=x+5
+
+    def affiche(self):
+        self.z=42
+        print(MaClass.y)
+        print(self.z)
+
+obj = MaClass()
+obj.affiche()
 
 #  exercice 11
 """
@@ -259,4 +271,21 @@ une méthode surface renvoyant la surface d’une instance.
 Définir une classe Carre héritant de Rectangle et qui surcharge l’attribut d’instance :
 nom = "carré".
 Dans le programme principal, instanciez un Rectangle et un Carre et affichez-les
+"""
+
+
+#  exercice 12
+"""
+Définir une classe Vecteur2D avec un constructeur fournissant les coordonnées par
+défaut d’un vecteur du plan (par exemple : x = 0 et y = 0).
+Dans le programme principal, instanciez un Vecteur2D sans paramètre, un Vecteur2D
+avec ses deux paramètres, et affichez-les.
+"""
+
+#  exercice 13
+"""
+Enrichissez la classe Vecteur2D précédente en lui ajoutant une méthode d’affichage
+et une méthode de surcharge d’addition de deux vecteurs du plan.
+Dans le programme principal, instanciez deux Vecteur2D, affichez-les et affichez leur
+somme.
 """
