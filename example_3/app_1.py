@@ -93,3 +93,19 @@ if payer == 0:
     print("rien")
 else: 
     print("payer {0}".format(payer))
+
+# exercice 15
+"""
+Écrire une fonction indiceDuMax() qui retourne 
+l’indice du plus grand flottant parmi
+ces n, et une autre indiceDuMin() qui retourne 
+l’indice du plus petit.
+
+Écrire ensuite un programme principal effectuant les actions suivantes :
+– saisie filtrée de n (vous devez faire en sorte que n ne puisse pas être saisi hors de ses
+limites) ;
+– remplissage aléatoire des n premières valeurs de t ab (on utilisera le module random(),
+sans argument, qui retourne un flottant au hasard entre 0.0 et +1.0) ;
+– affichage de l’amplitude du tableau (écart entre sa plus grande et sa plus petite valeur) ;
+– affichage de la moyenne des n premières valeurs de tab.
+"""
