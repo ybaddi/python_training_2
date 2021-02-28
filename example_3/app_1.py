@@ -48,6 +48,7 @@ class vecteur2D:
     def __add__(self,v): return vecteur2D(self.x + v.x,self.y+ v.y)
 
     def __mul__(self,v): return vecteur2D(self.x * v.x,self.y * v.y)
+    def __str__(self): return "Instance avec x={0} et y={1}".format(self.x,self.y)
     
 
 v1 = vecteur2D(1,2)
@@ -58,15 +59,37 @@ v3.affichage()
 
 v4 = v1*v2
 v4.affichage()
+print(v3)
+print(v4)
 
 # exercice 14
 """
-Un permis de chasse à points remplace désormais le permis de chasse traditionnel.
-Chaque chasseur possède au départ un capital de 100 points. S’il tue une poule il perd
-1 point, 3 points pour 1 chien, 5 points pour une vache et 10 points pour un ami. Le
-permis coûte 200 euros.
+Un permis de chasse à points remplace désormais 
+le permis de chasse traditionnel.
+Chaque chasseur possède au départ un capital de 100 points. 
+S’il tue une poule il perd
+1 point, 3 points pour 1 chien, 5 points pour une vache et 
+10 points pour un ami. Le permis coûte 200 euros.
 Écrire une fonction amende qui reçoit le nombre de victimes du chasseur et qui renvoie
 la somme due.
 Utilisez cette fonction dans un programme principal qui saisit le nombre de victimes
 et qui affiche la somme que le chasseur doit débourser.
 """
+
+def amende(p,c,v,a):
+    points_perdus = p + 3 * c + 5 * v+ 10 * a
+    nbr_perdu = points_perdus /100.0
+    return nbr_perdu * 200
+
+poule = int(input("Combien de poules? "))
+chien = int(input("Combien de chiens? "))
+vaches = int(input("Combien de vaches? "))
+amis = int(input("Combien de amis? "))
+
+payer = amende(poule, chien, vaches, amis)
+
+print("payer : ")
+if payer == 0:
+    print("rien")
+else: 
+    print("payer {0}".format(payer))
