@@ -32,7 +32,32 @@ de deux vecteurs du plan.
 Dans le programme principal, instanciez 
 deux Vecteur2D, affichez-les et affichez leur
 somme.
+surchage c'est la redifinition d'une function 
+qui existe deja par default dans toutes les class
 """
+
+class vecteur2D:
+    
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+    
+    def affichage(self):
+        print("Instance avec x={0} et y={1}".format(self.x,self.y))
+
+    def __add__(self,v): return vecteur2D(self.x + v.x,self.y+ v.y)
+
+    def __mul__(self,v): return vecteur2D(self.x * v.x,self.y * v.y)
+    
+
+v1 = vecteur2D(1,2)
+v2 = vecteur2D(2,2)
+
+v3 = v1+v2
+v3.affichage()
+
+v4 = v1*v2
+v4.affichage()
 
 # exercice 14
 """
