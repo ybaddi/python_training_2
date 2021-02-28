@@ -265,13 +265,35 @@ obj.affiche()
 
 #  exercice 11
 """
-Définir une classe Rectangle avec un constructeur donnant des valeurs (longueur et
-largeur) par défaut et un attribut nom = "rectangle", une méthode d’affichage et
+Définir une classe Rectangle avec un constructeur 
+donnant des valeurs (longueur et
+largeur) par défaut et un attribut 
+nom = "rectangle", une méthode d’affichage et
 une méthode surface renvoyant la surface d’une instance.
-Définir une classe Carre héritant de Rectangle et qui surcharge l’attribut d’instance :
+Définir une classe Carre héritant de Rectangle et 
+qui surcharge l’attribut d’instance :
 nom = "carré".
 Dans le programme principal, instanciez un Rectangle et un Carre et affichez-les
 """
+class Rectangle:
+    # nom = "rectangle"
+    def __init__(self, longueur, largeur ):
+        print("test")
+        self.longueur = longueur
+        self.largeur= largeur
+        self.nom = "rectangle"
+
+    def affichage(self):
+        print("le nom est {0} avec longueur {1} et largeur {2}"
+        .format(self.nom, self.longueur, self.largeur))
+
+    def surface(self):
+        print("la surface est {0}".format(self.longueur * self.largeur))
+
+
+rec = Rectangle(12,24)
+rec.affichage()
+rec.surface()
 
 
 #  exercice 12
