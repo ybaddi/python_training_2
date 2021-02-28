@@ -288,7 +288,8 @@ class Rectangle:
         .format(self.nom, self.longueur, self.largeur))
 
     def surface(self):
-        print("la surface est {0}".format(self.longueur * self.largeur))
+        print("la surface est {0}"
+        .format(self.longueur * self.largeur))
 
 
 rec = Rectangle(12,24)
