@@ -33,10 +33,100 @@ def write_file(filename):
 
 write_file("file_1.txt")
 read_file("file_1.txt")
-
+print("=============")
 # exercice 4: Ecrire un programme Python pour lire les n dernières lignes d'un fichier
-
+# a faire chez vous
+import sys
+import os
 # exercice 5: Ecrire un programme Python pour lire un fichier ligne par ligne et le stocker 
 # dans une liste.
 
-# exercice 6: 
+def read_lines_file(filename):
+    with open(filename, "r") as f:
+        data =f.readlines()
+        return data
+
+print(read_lines_file("file.txt")[0:2])
+print("=============")
+# exercice 6:  Écrire un programme Python pour compter la fréquence des mots dans un fichier
+
+from collections import Counter
+def count_words_file(filename):
+    with open(filename, "r") as f:
+        return Counter(f.read().split())
+
+print(count_words_file("file.txt"))
+print("=============")
+# exercice 7: Écrire un programme Python pour convertir un entier en chaîne de caractères 
+# dans n'importe quelle base
+# // 
+
+def base_to_string(n,base): 
+    symbole= "0123456789ABCDEF"
+    if n < base:
+        return symbole[n]
+    else:
+        return base_to_string(n//base,base) +  symbole[n%base]
+
+
+print(base_to_string(2835,2))   # B13  D
+print("=============")
+
+# exercice 8: un programme qui calcule le factoriel de x    x!= 1*2*3*4.....x  5!=1*2*3*4*5
+
+def factoriel(x): 
+    res=1
+    for i in range(1,x+1): 
+        res = res*i
+    return res
+
+def factoriel_rec(x): 
+    if x == 0: 
+        return 1
+    else: return factoriel_rec(x-1)*x
+
+print(factoriel(5))
+print(factoriel_rec(5))
+print("=============")
+#  exercice 9
+x=15
+y=4
+
+print(x/y)
+print((x//y) + 1)
+print("=============")
+
+
+
+# exercice 10:  ecrir un programme python qui se connect a une base de donnee SQLite
+#  et qui affiche sa version
+
+import sqlite3
+
+try:
+    sqlite_Connection = sqlite3.connect('database.db')
+    conn = sqlite_Connection.cursor()
+    req="select sqlite_version();"
+    conn.execute(req)
+    record = conn.fetchall()
+    print(record)
+    conn.close()
+except sqlite3.OperationalError as error:
+    print(error)
+# finally:
+#     print("la version du sqlite")
+
+print("hello")
+
+
+# exercice 11 : 
+# 1-Écrire un programme Python pour connecter une base de données et créer 
+# une table SQLite dans la base de données.
+# 2- Ecrire un programme Python pour lister les tables d'un fichier de base 
+# de données SQLite donné. 
+# 3-Écrivez un programme Python pour créer une table et insérez des enregistrements 
+# dans cette table. 
+# 4-Enfin, sélectionnez toutes les lignes de la table et affichez 
+# les enregistrements.
+
+# Python GUI tkinter
