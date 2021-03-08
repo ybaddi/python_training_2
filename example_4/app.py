@@ -128,5 +128,55 @@ print("hello")
 # dans cette table. 
 # 4-Enfin, sélectionnez toutes les lignes de la table et affichez 
 # les enregistrements.
+from sqlite3 import Error
+def sql_connect():
+    try:
+        sqlite_Connection = sqlite3.connect('database.db')
+        return sqlite_Connection
+    except Error:
+        print(Error)
 
+def sql_creat_table(sqlite_Connection):
+    try:
+        conn = sqlite_Connection.cursor()
+        req="Create table etudiant(id int, name varchar(255), email varchar(255), telephone varchar(255))"
+        conn.execute(req)
+        sqlite_Connection.commit()
+    except Error:
+        print(Error)
+    
+def sql_table(sqlite_Connection):
+    conn = sqlite_Connection.cursor()
+    req="select id, name, email, telephone from etudiant"
+    conn.execute(req)
+    record = conn.fetchall()
+    print(record)
+
+class Etudiant:    
+    def __init__(self,id,nom,email,telephone):
+        self.id=id
+        self.nom=nom
+        self.email=email
+        self.telephone=telephone
+
+def add_etudiant(etudiant):
+    conn = sqlite_Connection.cursor()
+    req=f"insert into etudiant values('{etudiant.id}','{etudiant.nom}','{etudiant.email}','{etudiant.telephone}');"
+    conn.execute(req)
+    sqlite_Connection.commit()
+
+connection = sql_connect()
+sql_creat_table(connection)
+sql_table(connection)
+e1=Etudiant(1,'baddi','b@b.com','06587678')
+e2=Etudiant(2,'alvin','b@b.com','06587678')
+e3=Etudiant(3,'karim','b@b.com','06587678')
+add_etudiant(e1)
+add_etudiant(e2)
+add_etudiant(e3)
+sql_table(connection)
+connection.close()
+
+
+# 
 # Python GUI tkinter
