@@ -296,19 +296,3 @@ rec = Rectangle(12,24)
 rec.affichage()
 rec.surface()
 
-
-#  exercice 12
-"""
-Définir une classe Vecteur2D avec un constructeur fournissant les coordonnées par
-défaut d’un vecteur du plan (par exemple : x = 0 et y = 0).
-Dans le programme principal, instanciez un Vecteur2D sans paramètre, un Vecteur2D
-avec ses deux paramètres, et affichez-les.
-"""
-
-#  exercice 13
-"""
-Enrichissez la classe Vecteur2D précédente en lui ajoutant une méthode d’affichage
-et une méthode de surcharge d’addition de deux vecteurs du plan.
-Dans le programme principal, instanciez deux Vecteur2D, affichez-les et affichez leur
-somme.
-"""

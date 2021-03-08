@@ -104,8 +104,22 @@ l’indice du plus petit.
 Écrire ensuite un programme principal effectuant les actions suivantes :
 – saisie filtrée de n (vous devez faire en sorte que n ne puisse pas être saisi hors de ses
 limites) ;
-– remplissage aléatoire des n premières valeurs de t ab (on utilisera le module random(),
+– remplissage aléatoire des n premières valeurs de tab (on utilisera le module random(),
 sans argument, qui retourne un flottant au hasard entre 0.0 et +1.0) ;
 – affichage de l’amplitude du tableau (écart entre sa plus grande et sa plus petite valeur) ;
 – affichage de la moyenne des n premières valeurs de tab.
 """
+
+from random import random
+def listRandom(n): 
+    return [random() for item in range(n)]
+
+t = listRandom(5)
+
+def indiceDuMax(t): return t.index(max(t))
+def indiceDuMin(t): return t.index(min(t))
+print(t)
+print(max(t))
+print(min(t))
+print(indiceDuMax(t))
+print(indiceDuMin(t))
